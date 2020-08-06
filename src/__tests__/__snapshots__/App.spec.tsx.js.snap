@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App component when is called should render correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="root-0-2-1"
+  >
+    <span>
+      Hello World
+    </span>
+  </div>
+</DocumentFragment>
+`;
