@@ -1,0 +1,13 @@
+language: node_js
+node_js:
+  - "12.16.3"
+
+addons:
+  chrome: stable
+
+jobs:
+  include:
+    - stage: build
+      script: npm run build:prod
+    - stage: test
+      script: npm run test:ci
