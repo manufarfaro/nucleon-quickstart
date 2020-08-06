@@ -3,6 +3,7 @@ import babel from '@rollup/plugin-babel';
 import replace from '@rollup/plugin-replace';
 import html, { makeHtmlAttributes } from '@rollup/plugin-html'
 import commonjs from '@rollup/plugin-commonjs';
+import image from '@rollup/plugin-image';
 import { terser } from 'rollup-plugin-terser';
 import postcss from 'rollup-plugin-postcss';
 
@@ -69,7 +70,8 @@ const rollupConfig = {
     postcss({
       extensions: styleExtensions,
       plugins: []
-    })
+    }),
+    image()
   ]
 };
 
