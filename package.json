@@ -1,0 +1,14 @@
+{
+  "name": "nucleon-quickstart",
+  "version": "0.0.1",
+  "description": "React Quickstart project",
+  "main": "src/index.ts",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [
+    "react-quickstart"
+  ],
+  "author": "Manu Farfaro <manufarfaro@gmail.com>",
+  "license": "ISC"
+}
