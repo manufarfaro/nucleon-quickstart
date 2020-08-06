@@ -40,6 +40,7 @@
     "react-dom": "^16.13.1",
     "react-jss": "^10.1.1",
     "rollup": "^2.17.0",
+    "rollup-plugin-postcss": "^3.1.2",
     "rollup-plugin-terser": "^6.1.0",
     "serve": "^11.3.1"
   }

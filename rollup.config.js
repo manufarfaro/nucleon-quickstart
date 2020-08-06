@@ -3,11 +3,13 @@ import babel from '@rollup/plugin-babel';
 import replace from '@rollup/plugin-replace';
 import html, { makeHtmlAttributes } from '@rollup/plugin-html'
 import commonjs from '@rollup/plugin-commonjs';
-import { terser } from "rollup-plugin-terser";
+import { terser } from 'rollup-plugin-terser';
+import postcss from 'rollup-plugin-postcss';
 
 const isProduction = process.env.NODE_ENV === 'production';
 
-const extensions = ['.tsx', '.ts', '.js'];
+const scriptExtensions = ['.tsx', '.ts', '.jsx', '.js'];
+const styleExtensions = ['.css'];
 
 const htmlTemplate = async ({ attributes, files, meta, publicPath, title }) => {
   const scripts = (files.js || [])
@@ -17,14 +19,7 @@ const htmlTemplate = async ({ attributes, files, meta, publicPath, title }) => {
     })
     .join('\n');
 
-  const links = (files.css || [])
-    .map(({ fileName }) => {
-      const attrs = makeHtmlAttributes(attributes.link);
-      return `<link href="${publicPath}${fileName}" rel="stylesheet"${attrs}>`;
-    })
-    .join('\n');
-
-  const metas = meta
+  const metas = (meta || [])
     .map((input) => {
       const attrs = makeHtmlAttributes(input);
       return `<meta${attrs}>`;
@@ -37,13 +32,6 @@ const htmlTemplate = async ({ attributes, files, meta, publicPath, title }) => {
       <head>
         ${metas}
         <title>${title}</title>
-        ${links}
-        <style>
-          html, body, #root {
-            width: 100%;
-            height: 100%;
-          }
-        </style>
       </head>
       <body>
         <div id="root"></div>
@@ -64,7 +52,7 @@ const rollupConfig = {
       'process.env.NODE_ENV': process.env.NODE_ENV
     }),
     resolve({
-      extensions
+      extensions: scriptExtensions
     }),
     commonjs({
       include: '**/node_modules/**',
@@ -72,12 +60,16 @@ const rollupConfig = {
     babel({
       babelHelpers: 'bundled',
       include: ['src/**/*'],
-      extensions
+      extensions: scriptExtensions
     }),
     html({
-      template: htmlTemplate
+      template: htmlTemplate,
     }),
-    isProduction && terser()
+    isProduction && terser(),
+    postcss({
+      extensions: styleExtensions,
+      plugins: []
+    })
   ]
 };
 
