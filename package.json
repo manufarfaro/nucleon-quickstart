@@ -1,12 +1,14 @@
 {
-  "name": "nucleon-quickstart",
+  "name": "@manufarfaro/nucleon-quickstart",
   "version": "0.0.1",
   "description": "React Quickstart project",
   "main": "src/index.ts",
+  "type": "module",
   "scripts": {
     "build": "rollup -c",
     "build:prod": "cross-env NODE_ENV=production rollup -c",
     "test": "jest",
+    "test:ci": "npm run test -- --ci",
     "watch": "rollup -c -w",
     "start:dev": "npm-run-all --parallel start watch",
     "start": "serve dist"
@@ -21,12 +23,13 @@
     "@babel/preset-env": "^7.11.0",
     "@babel/preset-react": "^7.10.4",
     "@babel/preset-typescript": "^7.10.4",
-    "@rollup/plugin-babel": "^5.1.0",
-    "@rollup/plugin-commonjs": "^14.0.0",
-    "@rollup/plugin-html": "^0.2.0",
-    "@rollup/plugin-node-resolve": "^8.4.0",
+    "@rollup/plugin-babel": "^5.0.3",
+    "@rollup/plugin-commonjs": "^13.0.0",
+    "@rollup/plugin-html": "^0.1.1",
+    "@rollup/plugin-node-resolve": "^8.0.1",
     "@rollup/plugin-replace": "^2.3.3",
-    "@testing-library/react": "^10.4.8",
+    "@testing-library/react": "^10.4.7",
+    "@types/jest": "^26.0.9",
     "@types/react": "^16.9.44",
     "@types/react-dom": "^16.9.8",
     "babel-jest": "^26.2.2",
@@ -35,9 +38,9 @@
     "npm-run-all": "^4.1.5",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-jss": "^10.3.0",
-    "rollup": "^2.23.0",
+    "react-jss": "^10.1.1",
+    "rollup": "^2.17.0",
     "rollup-plugin-terser": "^6.1.0",
-    "serve": "^11.3.2"
+    "serve": "^11.3.1"
   }
 }
