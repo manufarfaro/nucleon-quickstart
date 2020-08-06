@@ -6,7 +6,7 @@ React quickstart.
 TBD.
 
 ## Testing
-TBD.
+[![Build Status](https://travis-ci.org/manufarfaro/nucleon-quickstart.svg?branch=master)](https://travis-ci.org/manufarfaro/nucleon-quickstart)
 
 ## Technologies
 - React
